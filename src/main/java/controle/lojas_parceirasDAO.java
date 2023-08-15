@@ -36,6 +36,8 @@ try {
 }catch(SQLException e) {
 	e.printStackTrace();
 }
+
+         c.fecharConexao();
 		 return lojas;
 	}
 	
