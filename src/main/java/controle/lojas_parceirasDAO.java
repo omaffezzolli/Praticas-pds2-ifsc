@@ -15,8 +15,8 @@ public class lojas_parceirasDAO {
 		Connection con = c.conectar();
 		
 		ArrayList<lojas_parceiras> lojas = new ArrayList();
-		String query = "";
-		 return null;
+		String query = "SELECT * FROM lojas";
+		 return lojas;
 	}
 	
 	
