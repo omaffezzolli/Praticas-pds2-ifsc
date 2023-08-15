@@ -2,6 +2,7 @@ package controle;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -16,6 +17,25 @@ public class lojas_parceirasDAO {
 		
 		ArrayList<lojas_parceiras> lojas = new ArrayList();
 		String query = "SELECT * FROM lojas";
+try {
+	PreparedStatement ps = con.prepareStatement(query);
+	
+	ResultSet rs = ps.executeQuery();
+	while(rs.next()) {
+		int id_cnpj = rs.getInt("id_cnpj");
+		
+		String nome_loja = rs.getString("nome_loja");
+		
+		lojas_parceiras loja = new lojas_parceiras();
+		loja.setId_cnpj(id_cnpj);
+		loja.setNome_loja(nome_loja);
+		
+		lojas.add(loja);
+	}
+	
+}catch(SQLException e) {
+	e.printStackTrace();
+}
 		 return lojas;
 	}
 	
